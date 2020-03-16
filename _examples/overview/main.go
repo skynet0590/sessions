@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/skynet/go-sessions"
+	"github.com/skynet0590/sessions"
 )
 
 var (

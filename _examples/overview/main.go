@@ -1,9 +1,10 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 
-	"github.com/kataras/go-sessions"
+	"github.com/skynet/go-sessions"
 )
 
 var (
@@ -40,9 +41,18 @@ func logout(w http.ResponseWriter, r *http.Request) {
 	session.Set("authenticated", false)
 }
 
+func scan(w http.ResponseWriter, r *http.Request) {
+	c := 0
+	sess.Scan(func(s *sessions.Session) {
+		c++
+		fmt.Println(s.Get("authenticated"))
+	})
+	w.Write([]byte(fmt.Sprintf("The sessions length is %d", c)))
+}
+
 func main() {
 	app := http.NewServeMux()
-
+	app.HandleFunc("/scan", scan)
 	app.HandleFunc("/secret", secret)
 	app.HandleFunc("/login", login)
 	app.HandleFunc("/logout", logout)

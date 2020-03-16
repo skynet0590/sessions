@@ -35,7 +35,7 @@ import (
 
 const (
 	// Version current semantic version string of the go-sessions package.
-	Version = "3.1.0"
+	Version = "3.1.1"
 )
 
 // A Sessions manager should be responsible to Start a sesion, based
@@ -69,6 +69,15 @@ func UseDatabase(db Database) {
 // UseDatabase adds a session database to the manager's provider.
 func (s *Sessions) UseDatabase(db Database) {
 	s.provider.RegisterDatabase(db)
+}
+
+// Scan scan on storage and return the right session with condition
+func (s *Sessions) Scan(scanner func(*Session)) {
+	s.provider.mu.Lock()
+	for _, ss := range s.provider.sessions {
+		scanner(ss)
+	}
+	s.provider.mu.Unlock()
 }
 
 // updateCookie gains the ability of updating the session browser cookie to any method which wants to update it

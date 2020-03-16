@@ -1,4 +1,4 @@
-module github.com/kataras/go-sessions
+module github.com/skynet/go-sessions
 
 require (
 	github.com/AndreasBriese/bbloom v0.0.0-20180913140656-343706a395b7 // indirect
@@ -29,3 +29,5 @@ require (
 	github.com/yudai/gojsondiff v1.0.0 // indirect
 	github.com/yudai/golcs v0.0.0-20170316035057-ecda9a501e82 // indirect
 )
+
+go 1.13

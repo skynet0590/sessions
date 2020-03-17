@@ -2,13 +2,13 @@ package boltdb
 
 import (
 	"errors"
+	"github.com/skynet0590/sessions"
 	"log"
 	"os"
 	"path/filepath"
 	"runtime"
 	"time"
 
-	"github.com/skynet/go-sessions"
 
 	bolt "github.com/etcd-io/bbolt"
 )

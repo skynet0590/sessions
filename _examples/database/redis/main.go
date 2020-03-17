@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/skynet/go-sessions"
-	"github.com/skynet/go-sessions/sessiondb/redis"
-	"github.com/skynet/go-sessions/sessiondb/redis/service"
+	"github.com/skynet0590/sessions"
+	"github.com/skynet0590/sessions/sessiondb/redis"
+	"github.com/skynet0590/sessions/sessiondb/redis/service"
 )
 
 func main() {
